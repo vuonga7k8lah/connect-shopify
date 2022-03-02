@@ -1,0 +1,4 @@
+shopify:
+  version: "2022-01"
+  rootEndpoint: "https://{shopName}/admin/api/{version}/graphql.json"
+  shopifyDomain: "myshopify.com"

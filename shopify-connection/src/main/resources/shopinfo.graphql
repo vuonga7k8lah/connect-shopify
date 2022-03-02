@@ -1,0 +1,22 @@
+#// https://www.youtube.com/watch?v=zX2I7-aIldE&ab_channel=TechPrimers
+type Query {
+    shop: ShopSkeleton
+}
+
+type Data {
+    shop: ShopSkeleton
+}
+
+type ShopSkeleton {
+    name: String,
+    email: String,
+    myshopifyDomain: String,
+    contactEmail: String,
+    description: String!,
+    primaryDomain: PrimaryDomain
+}
+
+type PrimaryDomain {
+    url: String,
+    host: String
+}

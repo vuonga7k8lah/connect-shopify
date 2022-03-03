@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = APIUtil.CART_ENDPOINT)
+@RequestMapping(path = APIUtil.CHECKOUT_ENDPOINT)
 @Component
 @Validated
 public class CheckoutController {

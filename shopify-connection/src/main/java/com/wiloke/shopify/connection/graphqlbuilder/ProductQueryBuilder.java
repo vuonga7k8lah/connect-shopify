@@ -5,6 +5,7 @@ import com.wiloke.shopify.connection.dto.shopify.request.pluck.ProductPluck;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 @Component
 public class ProductQueryBuilder  implements GraphqlBuilderable<ProductRequestDTO> {
     private ProductRequestDTO productQueryDTO;
+    private String fieldQuery;
 
     @Override
     public GraphqlBuilderable<ProductRequestDTO> setRequest(ProductRequestDTO queryable) {
@@ -70,7 +72,11 @@ public class ProductQueryBuilder  implements GraphqlBuilderable<ProductRequestDT
 
         var handleNode=GraphQLQueryBuilder.query().object("node",aFiledQuery).build().getBuild();
         var handleEdges=GraphQLQueryBuilder.query().object("edges",handleNode).build().getBuild();
-
-        return graphQLQueryBuilder.object("products(first: 20)",handleEdges).build().getQueryBuilder();
+        if (productQueryDTO.getHandles() == null){
+            fieldQuery = "products(first: 20)";
+        }else {
+            fieldQuery = "products(first: 20 ,query:\""+productQueryDTO.getHandles().replaceAll(","," OR ")+"\" )";
+        }
+        return graphQLQueryBuilder.object(fieldQuery,handleEdges).build().getQueryBuilder();
     }
 }

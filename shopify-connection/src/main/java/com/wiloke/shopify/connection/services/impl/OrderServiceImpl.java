@@ -31,7 +31,7 @@ public class OrderServiceImpl implements ShopifyServiceAble<OrderRequestDTO> {
 
     @Override
     public QueryCostDTO getQueryCost() {
-        return this.skeleton.getExtensions();
+        return null;
     }
 
     @Autowired

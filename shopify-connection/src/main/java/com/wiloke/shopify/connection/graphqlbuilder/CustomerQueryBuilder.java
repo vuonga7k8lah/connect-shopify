@@ -72,6 +72,6 @@ public class CustomerQueryBuilder implements GraphqlBuilderable<CustomerRequestD
         var handleNode = GraphQLQueryBuilder.query().object("node", aFiledQuery).build().getBuild();
         var handleEdges = GraphQLQueryBuilder.query().object("edges", handleNode).build().getBuild();
 
-        return graphQLQueryBuilder.object("customers(first: 20) ", handleEdges).build().getQueryBuilder();
+        return graphQLQueryBuilder.object("customers(first: 1) ", handleEdges).build().getQueryBuilder();
     }
 }

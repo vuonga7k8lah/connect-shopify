@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 
 
 @Data
@@ -33,7 +34,7 @@ public class CustomerServiceImpl implements ShopifyServiceAble<CustomerRequestDT
 
     @Override
     public QueryCostDTO getQueryCost() {
-        return this.skeleton.getExtensions();
+        return null;
     }
 
     @Autowired
@@ -52,7 +53,9 @@ public class CustomerServiceImpl implements ShopifyServiceAble<CustomerRequestDT
 //            var queryCost = this.getQueryCost();
 //            return APIUtil.buildFullResponse(data, queryCost);
 //        }
-
-        return skeleton.getData();
+        var customerData = skeleton.getData().getCustomers();
+        var formatData = new HashMap<String, Object>();
+        formatData.put("customer", customerData);
+        return formatData;
     }
 }

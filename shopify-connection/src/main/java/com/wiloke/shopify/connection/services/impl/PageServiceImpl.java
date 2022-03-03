@@ -31,7 +31,7 @@ public class PageServiceImpl implements ShopifyServiceAble<PageRequestDTO> {
 
     @Override
     public QueryCostDTO getQueryCost() {
-        return this.skeleton.getExtensions();
+        return null;
     }
 
 

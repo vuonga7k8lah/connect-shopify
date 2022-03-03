@@ -2,11 +2,12 @@ package com.wiloke.shopify.connection.dto.shopify.request;
 
 import com.wiloke.shopify.connection.dto.shopify.request.pluck.CollectionPluck;
 import com.wiloke.shopify.connection.utils.IdUtils;
+import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Arrays;
-
+@Data
 public class CollectionRequestDTO extends DTORequestable<CollectionPluck> implements DTORequestByIdable {
     @NotNull(message = "The id is required!")
     @NotEmpty(message = "The id is required!")
@@ -27,4 +28,5 @@ public class CollectionRequestDTO extends DTORequestable<CollectionPluck> implem
     public String getId() {
         return this.id;
     }
+    private String handles;
 }

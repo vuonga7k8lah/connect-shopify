@@ -33,7 +33,7 @@ public class ArticleServiceImpl implements ShopifyServiceAble<ArticleRequestDTO>
 
     @Override
     public QueryCostDTO getQueryCost() {
-        return this.skeleton.getExtensions();
+        return null;
     }
 
 

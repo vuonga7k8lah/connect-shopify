@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 public class CommandSkeleton {
-    public QueryCostDTO extensions;
     public Object getComments(){
         return (new CommentFakeDTO());
     }

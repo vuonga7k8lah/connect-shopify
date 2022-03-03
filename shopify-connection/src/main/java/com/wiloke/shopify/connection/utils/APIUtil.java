@@ -14,16 +14,16 @@ public class APIUtil {
     public final static String COLLECTION_NAMESPACE = "collections";
     public final static String COLLECTION_ENDPOINT = ROOT_NAMESPACE + DS + API_VERSION + DS + COLLECTION_NAMESPACE;
 
-    public final static String SHOP_INFO_NAMESPACE = "shops";
+    public final static String SHOP_INFO_NAMESPACE = "shop";
     public final static String SHOP_INFO_ENDPOINT = ROOT_NAMESPACE + DS + API_VERSION + DS + SHOP_INFO_NAMESPACE;
 
     public final static String PRODUCT_NAMESPACE = "products";
     public final static String PRODUCT_ENDPOINT = ROOT_NAMESPACE + DS + API_VERSION + DS + PRODUCT_NAMESPACE;
 
-    public final static String ORDER_NAMESPACE = "orders";
+    public final static String ORDER_NAMESPACE = "order";
     public final static String ORDER_ENDPOINT = ROOT_NAMESPACE + DS + API_VERSION + DS + ORDER_NAMESPACE;
 
-    public final static String CUSTOMER_NAMESPACE = "customers";
+    public final static String CUSTOMER_NAMESPACE = "customer";
     public final static String CUSTOMER_ENDPOINT = ROOT_NAMESPACE + DS + API_VERSION + DS + CUSTOMER_NAMESPACE;
 
     public final static String BLOG_NAMESPACE = "blogs";
@@ -40,6 +40,9 @@ public class APIUtil {
 
     public final static String CART_NAMESPACE = "carts";
     public final static String CART_ENDPOINT = ROOT_NAMESPACE + DS + API_VERSION + DS + CART_NAMESPACE;
+
+    public final static String LOCALIZATION_NAMESPACE = "localization";
+    public final static String LOCALIZATION_ENDPOINT = ROOT_NAMESPACE + DS + API_VERSION + DS + LOCALIZATION_NAMESPACE;
 
     public final static String COMMENT_NAMESPACE = "comments";
     public final static String COMMENT_ENDPOINT = ROOT_NAMESPACE + DS + API_VERSION + DS + COMMENT_NAMESPACE;

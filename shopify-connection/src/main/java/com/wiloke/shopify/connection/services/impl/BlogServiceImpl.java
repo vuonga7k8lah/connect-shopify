@@ -43,7 +43,7 @@ public class BlogServiceImpl implements ShopifyServiceAble<BlogRequestDTO> {
 
     @Override
     public QueryCostDTO getQueryCost() {
-        return this.skeleton.getExtensions();
+        return null;
     }
 
 

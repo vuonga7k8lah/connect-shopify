@@ -54,6 +54,6 @@ public class ProductServiceImpl implements ShopifyServiceAble<ProductRequestDTO>
 
     @Override
     public QueryCostDTO getQueryCost() {
-        return this.skeleton.getExtensions();
+       return null;
     }
 }

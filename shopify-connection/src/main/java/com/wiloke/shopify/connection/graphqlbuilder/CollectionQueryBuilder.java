@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CollectionQueryBuilder implements GraphqlBuilderable<CollectionRequestDTO> {
     private CollectionRequestDTO collectionRequestDTO;
+    private String fieldQuery;
 
     @Override
     public GraphqlBuilderable<CollectionRequestDTO> setRequest(CollectionRequestDTO queryable) {
@@ -29,11 +30,18 @@ public class CollectionQueryBuilder implements GraphqlBuilderable<CollectionRequ
             }
         }
         if (this.collectionRequestDTO.getId() == null) {
-            var graphQLQuery=graphQLQueryBuilder.getBuild();
+            var graphQLQuery = graphQLQueryBuilder.getBuild();
             var handleNode = GraphQLQueryBuilder.query().object("node", graphQLQuery).build().getBuild();
             var handleEdges = GraphQLQueryBuilder.query().object("edges", handleNode).build().getBuild();
-            return graphQLQueryBuilder.object(" collections(first: 10)",handleEdges).build().getQueryBuilder();
+            if (collectionRequestDTO.getHandles() == null) {
+                fieldQuery = "collections(first: 10)";
+            } else {
+                fieldQuery = "collections(first: 10 ,query:\"" + collectionRequestDTO.getHandles().replaceAll(",", " OR ") + "\" )";
+            }
+            return graphQLQueryBuilder.object(fieldQuery, handleEdges).build().getQueryBuilder();
         }
+
+
         return graphQLQueryBuilder.topWrapper(" collection(id: \"" + this.collectionRequestDTO.getId() + "\")").getQueryBuilder();
     }
 }

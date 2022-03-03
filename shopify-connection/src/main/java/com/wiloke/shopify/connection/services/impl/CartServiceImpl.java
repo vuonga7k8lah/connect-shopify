@@ -17,14 +17,14 @@ public class CartServiceImpl implements ShopifyServiceFakeAble {
 
     @Override
     public Object getData() throws Exception {
-        HashMap<String, Object> checkout = new HashMap<>();
+        HashMap<String, Object> carts = new HashMap<>();
         var listCarts = new ArrayList<>();
         listCarts.add(cartSkeleton.getCarts());
         listCarts.add(cartSkeleton.getCarts());
         listCarts.add(cartSkeleton.getCarts());
         listCarts.add(cartSkeleton.getCarts());
         listCarts.add(cartSkeleton.getCarts());
-        checkout.put("carts", listCarts);
-        return checkout;
+        carts.put("carts", listCarts);
+        return carts;
     }
 }

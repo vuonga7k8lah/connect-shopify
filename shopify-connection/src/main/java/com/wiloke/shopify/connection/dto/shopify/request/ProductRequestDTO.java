@@ -17,5 +17,6 @@ public class ProductRequestDTO extends DTORequestable<ProductPluck>  {
     public ProductPluck[] getAllPluck() {
         return  Arrays.stream(ProductPluck.values()).filter(pluck->pluck.getIsDefault().equals(true)).toArray(ProductPluck[]::new);
     }
+    private String handles;
 
 }

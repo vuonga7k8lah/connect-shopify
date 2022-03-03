@@ -14,12 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = APIUtil.COMMENT_ENDPOINT)
 @Component
-@Validated
 public class CommentController {
     @Autowired
     private CommentServiceImpl commentService;
     @RequestMapping
-    public ResponseEntity<Object> getCheckouts() throws Exception {
+    public ResponseEntity<Object> getComments() throws Exception {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(commentService.getData());
     }
 }

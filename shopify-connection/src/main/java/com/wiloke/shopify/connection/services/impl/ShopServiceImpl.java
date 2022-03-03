@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+
 @Service(value = "ShopServiceImpl")
 public class ShopServiceImpl implements ShopifyServiceAble<ShopRequestDTO> {
 
@@ -32,7 +34,7 @@ public class ShopServiceImpl implements ShopifyServiceAble<ShopRequestDTO> {
 
     @Override
     public Object getData(ShopRequestDTO dtoRequestable) throws Exception {
-        var shopSkeleton= new ShopSkeleton();
+        var shopSkeleton = new ShopSkeleton();
         this.skeleton = this.shopify
                 .withOfflineToken(AccessToken.token)
                 .withShopName(dtoRequestable.getShopName())
@@ -44,12 +46,13 @@ public class ShopServiceImpl implements ShopifyServiceAble<ShopRequestDTO> {
             var queryCost = this.getQueryCost();
             return APIUtil.buildFullResponse(data, queryCost);
         }
-
-        return data;
+        var formatData = new HashMap<String, Object>();
+        formatData.put("shop", data.getShop());
+        return formatData;
     }
 
     @Override
     public QueryCostDTO getQueryCost() {
-        return this.skeleton.getExtensions();
+        return null;
     }
 }

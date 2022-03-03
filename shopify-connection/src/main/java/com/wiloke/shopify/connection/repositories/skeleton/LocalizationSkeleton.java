@@ -10,4 +10,5 @@ public class LocalizationSkeleton {
     public Object getData(){
         return new LocalizationFakeDTO();
     }
+
 }

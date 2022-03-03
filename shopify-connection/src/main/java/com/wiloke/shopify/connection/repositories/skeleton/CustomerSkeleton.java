@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 @Data
 public class CustomerSkeleton extends CommandSkeleton {
     private CustomersDTO data;
+    private Object extensions;
 }

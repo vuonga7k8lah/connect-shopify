@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 @Data
 public class PageSkeleton extends CommandSkeleton{
     private PageDTO[] pages;
+    private Object extensions;
 }

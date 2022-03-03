@@ -18,13 +18,7 @@ public class CartServiceImpl implements ShopifyServiceFakeAble {
     @Override
     public Object getData() throws Exception {
         HashMap<String, Object> carts = new HashMap<>();
-        var listCarts = new ArrayList<>();
-        listCarts.add(cartSkeleton.getCarts());
-        listCarts.add(cartSkeleton.getCarts());
-        listCarts.add(cartSkeleton.getCarts());
-        listCarts.add(cartSkeleton.getCarts());
-        listCarts.add(cartSkeleton.getCarts());
-        carts.put("carts", listCarts);
+        carts.put("cart", cartSkeleton.getCarts());
         return carts;
     }
 }

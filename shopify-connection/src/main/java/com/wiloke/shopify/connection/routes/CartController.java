@@ -17,7 +17,7 @@ public class CartController {
     @Autowired
     private CartServiceImpl cartService;
     @RequestMapping
-    public ResponseEntity<Object> getCarts() throws Exception {
+    public ResponseEntity<Object> getCart() throws Exception {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(cartService.getData());
     }
 }

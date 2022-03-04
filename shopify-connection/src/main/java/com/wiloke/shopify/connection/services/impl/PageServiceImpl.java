@@ -40,6 +40,7 @@ public class PageServiceImpl implements ShopifyServiceAble<PageRequestDTO> {
         var pageSkeleton = new PageSkeleton();
         this.skeleton = this.shopify
                 .withOfflineToken(AccessToken.token)
+                .withHandles(pageRequestDTO.getHandles())
                 .withShopName(pageRequestDTO.getShopName())
                 .withPluckResponse("")
                 .query(shopQuery, pageSkeleton);

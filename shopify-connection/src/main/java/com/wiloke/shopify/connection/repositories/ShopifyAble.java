@@ -15,4 +15,6 @@ public interface ShopifyAble {
     <T extends ShopifyQueryable, R> R query(T shopifyQuery, R mappingJsonToObject) throws Exception;
 
     Integer codeStatus();
+
+    ShopifyAble withHandles(String handles);
 }

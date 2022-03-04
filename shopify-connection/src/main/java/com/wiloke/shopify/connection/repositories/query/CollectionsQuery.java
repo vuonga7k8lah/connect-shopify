@@ -40,6 +40,11 @@ public class CollectionsQuery implements ShopifyQueryable {
     }
 
     @Override
+    public ShopifyQueryable setHandles(String id) {
+        return null;
+    }
+
+    @Override
     public ShopifyQueryable setOfflineToken(String offlineToken) {
         this.offlineToken = offlineToken;
         return this;

@@ -30,4 +30,5 @@ public class ArticleRequestDTO extends DTORequestable<ArticlePluck> implements D
     public String getId() {
         return this.id;
     }
+    private String handles;
 }

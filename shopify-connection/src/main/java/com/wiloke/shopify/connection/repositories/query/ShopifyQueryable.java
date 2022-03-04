@@ -1,6 +1,7 @@
 package com.wiloke.shopify.connection.repositories.query;
 
 import com.wiloke.shopify.connection.dto.shopify.QueryCostDTO;
+
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
 import java.util.Collections;
@@ -15,6 +16,8 @@ public interface ShopifyQueryable {
     ShopifyQueryable setEndpoint(String endpoint);
 
     ShopifyQueryable setId(String id);
+
+    ShopifyQueryable setHandles(String handles);
 
     ShopifyQueryable setGraphQLQuery(String query);
 

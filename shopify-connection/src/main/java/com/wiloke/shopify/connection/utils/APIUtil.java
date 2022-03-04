@@ -38,7 +38,7 @@ public class APIUtil {
     public final static String CHECKOUT_NAMESPACE = "checkouts";
     public final static String CHECKOUT_ENDPOINT = ROOT_NAMESPACE + DS + API_VERSION + DS + CHECKOUT_NAMESPACE;
 
-    public final static String CART_NAMESPACE = "carts";
+    public final static String CART_NAMESPACE = "cart";
     public final static String CART_ENDPOINT = ROOT_NAMESPACE + DS + API_VERSION + DS + CART_NAMESPACE;
 
     public final static String LOCALIZATION_NAMESPACE = "localization";

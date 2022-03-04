@@ -19,6 +19,7 @@ import java.util.Collections;
 public class BlogQuery implements ShopifyQueryable {
     private String endpoint;
     private String id;
+    private String handles;
     private String offlineToken;
     private HttpRequest httpRequest;
     private QueryCostDTO extensions;
@@ -41,6 +42,12 @@ public class BlogQuery implements ShopifyQueryable {
     }
 
     @Override
+    public ShopifyQueryable setHandles(String handles) {
+        this.handles = handles;
+        return this;
+    }
+
+    @Override
     public ShopifyQueryable setOfflineToken(String offlineToken) {
         this.offlineToken = offlineToken;
         return this;
@@ -56,6 +63,9 @@ public class BlogQuery implements ShopifyQueryable {
     public HttpClient buildHttpClient() {
         HttpClient httpClient = HttpClient.newHttpClient();
         var endpoint= this.endpoint.replace("graphql.json","blogs.json");
+        if (this.handles != null){
+            endpoint = endpoint + "?handle="+this.handles;
+        }
         this.httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create(endpoint))
                 .headers("Content-Type", "application/json")

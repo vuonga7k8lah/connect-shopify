@@ -11,4 +11,6 @@ public class PageRequestDTO extends DTORequestable<PagePluck>{
     public PagePluck[] getAllPluck() {
         return new PagePluck[0];
     }
+
+    private String handles;
 }

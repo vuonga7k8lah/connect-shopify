@@ -22,6 +22,7 @@ public class Shopify implements ShopifyAble {
     private ShopifyAble shopifySDK;
     private String shopName;
     private String id;
+    private String handles;
     private String offlineToken;
     private DTORequestable dtoRequestable;
 
@@ -74,11 +75,22 @@ public class Shopify implements ShopifyAble {
         return this;
     }
 
+    public ShopifyAble withHandles(String handles){
+        this.handles= handles;
+        return this;
+    }
+
     @Override
     public <T extends ShopifyQueryable, R> R query(T shopifyQuery, R mappingJsonToObject) throws Exception {
-        this.response = shopifyQuery.setId(id).setEndpoint(this.buildRootEndpoint()).setOfflineToken(this.offlineToken).setGraphQLQuery(this.graphQLQuery).query();
-        System.out.println(this.graphQLQuery);
-        System.out.println(this.response.body());
+        this.response = shopifyQuery
+                .setId(id)
+                .setHandles(this.handles)
+                .setEndpoint(this.buildRootEndpoint())
+                .setOfflineToken(this.offlineToken)
+                .setGraphQLQuery(this.graphQLQuery)
+                .query();
+        //System.out.println(this.graphQLQuery);
+        //System.out.println(this.response.body());
         return this.parseBody(mappingJsonToObject);
     }
 

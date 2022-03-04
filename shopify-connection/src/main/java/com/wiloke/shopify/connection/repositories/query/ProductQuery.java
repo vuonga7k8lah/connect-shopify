@@ -66,6 +66,11 @@ public class ProductQuery implements ShopifyQueryable {
     }
 
     @Override
+    public ShopifyQueryable setHandles(String id) {
+        return null;
+    }
+
+    @Override
     public ShopifyQueryable setGraphQLQuery(String query) {
         this.grapQLQuery = query;
         return this;

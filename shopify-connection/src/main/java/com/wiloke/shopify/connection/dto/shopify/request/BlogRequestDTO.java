@@ -11,4 +11,6 @@ public class BlogRequestDTO extends DTORequestable<BlogPluck>{
     public BlogPluck[] getAllPluck() {
         return new BlogPluck[0];
     }
+
+    private String handles;
 }

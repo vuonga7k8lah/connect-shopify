@@ -16,9 +16,10 @@ import java.util.Collections;
 
 @Repository(value = "PageQuery")
 @Data
-public class PageQuery implements ShopifyQueryable{
+public class PageQuery implements ShopifyQueryable {
     private String endpoint;
     private String id;
+    private String handles;
     private String offlineToken;
     private HttpRequest httpRequest;
     private QueryCostDTO extensions;
@@ -33,10 +34,18 @@ public class PageQuery implements ShopifyQueryable{
         this.endpoint = endpoint;
         return this;
     }
+
     public ShopifyQueryable setId(String id) {
         this.id = id;
         return this;
     }
+
+    @Override
+    public ShopifyQueryable setHandles(String handles) {
+        this.handles = handles;
+        return this;
+    }
+
     @Override
     public ShopifyQueryable setOfflineToken(String offlineToken) {
         this.offlineToken = offlineToken;
@@ -52,11 +61,14 @@ public class PageQuery implements ShopifyQueryable{
     @Override
     public HttpClient buildHttpClient() {
         HttpClient httpClient = HttpClient.newHttpClient();
-        var endpoint= this.endpoint.replace("graphql.json","pages.json");
+        var endpoint = this.endpoint.replace("graphql.json", "pages.json");
+        if (this.handles != null) {
+            endpoint = endpoint + "?handle=" + this.handles;
+        }
         this.httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create(endpoint))
                 .headers("Content-Type", "application/json")
-                .headers("X-Shopify-Access-Token",  AccessToken.token)
+                .headers("X-Shopify-Access-Token", AccessToken.token)
                 .GET()
                 .build();
         return httpClient;

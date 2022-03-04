@@ -42,6 +42,7 @@ public class ArticleServiceImpl implements ShopifyServiceAble<ArticleRequestDTO>
         var articleSkeleton = new ArticleSkeleton();
         this.skeleton = this.shopify
                 .withId(dtoRequestable.getId())
+                .withHandles(dtoRequestable.getHandles())
                 .withOfflineToken(AccessToken.token)
                 .withShopName(dtoRequestable.getShopName())
                 .withPluckResponse("")

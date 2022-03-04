@@ -53,6 +53,7 @@ public class BlogServiceImpl implements ShopifyServiceAble<BlogRequestDTO> {
         var articleSkeleton = new ArticleSkeleton();
         this.skeleton = this.shopify
                 .withOfflineToken(AccessToken.token)
+                .withHandles(dtoRequestable.getHandles())
                 .withShopName(dtoRequestable.getShopName())
                 .withPluckResponse("")
                 .query(shopQuery, blogSkeleton);

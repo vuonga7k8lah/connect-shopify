@@ -58,6 +58,7 @@ public class ShopQuery implements ShopifyQueryable {
 
     @Override
     public HttpClient buildHttpClient() {
+
         var bodyPublisher = HttpRequest.BodyPublishers.ofString(this.grapQLQuery);
         HttpClient httpClient = HttpClient.newHttpClient();
         this.httpRequest = HttpRequest.newBuilder()

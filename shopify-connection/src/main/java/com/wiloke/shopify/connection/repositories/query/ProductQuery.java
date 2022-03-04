@@ -33,6 +33,7 @@ public class ProductQuery implements ShopifyQueryable {
     public HttpClient buildHttpClient() {
         var bodyPublisher = HttpRequest.BodyPublishers.ofString(this.grapQLQuery);
         HttpClient httpClient = HttpClient.newHttpClient();
+
         this.httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create(this.endpoint))
                 .headers("Content-Type", "application/graphql")

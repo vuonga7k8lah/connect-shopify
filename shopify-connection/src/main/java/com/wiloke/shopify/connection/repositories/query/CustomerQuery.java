@@ -41,7 +41,7 @@ public class CustomerQuery implements ShopifyQueryable{
 
     @Override
     public ShopifyQueryable setHandles(String id) {
-        return null;
+        return this;
     }
 
     @Override

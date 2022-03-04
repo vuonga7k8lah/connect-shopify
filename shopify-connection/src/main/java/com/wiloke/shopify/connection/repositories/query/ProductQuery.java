@@ -66,8 +66,8 @@ public class ProductQuery implements ShopifyQueryable {
     }
 
     @Override
-    public ShopifyQueryable setHandles(String id) {
-        return null;
+    public ShopifyQueryable setHandles(String handle) {
+        return this;
     }
 
     @Override
